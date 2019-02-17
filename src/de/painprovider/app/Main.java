@@ -33,6 +33,7 @@ public class Main {
         Bamboozled.setExperience(ork.getExperience());
 
         System.out.println(Bamboozled.getExperience());
+        System.out.println(Bamboozled.getExperience());
 
 
 
