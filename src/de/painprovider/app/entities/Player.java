@@ -22,15 +22,37 @@ public class Player {
     public Weapon weapon;
     public Armor armor;
     private List<Item> inventory = new ArrayList<>();
+    private boolean isDead;
+    private String name;
 
-    public Player(int level, String charClass){
+    public Player(int level, String charClass, String name){
         this.level = level;
         this.charClass = charClass;
         this.experience = level * 1000;
         this.weapon = new Sword(new Material("Crapium", 1, 1));
         this.armor = new Robes(new Material("Crapium", 1, 1));
+        this.isDead = false;
+        this.name = name;
         setBaseAttackroll();
         setBaseHP();
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+
+
+    public void setIsDead()  {
+        if (baseHP < 0) {
+            this.isDead = true;
+        } else {
+            this.isDead = false;
+        }
+    }
+
+    public boolean getIsDead () {
+        return this.isDead;
     }
 
 
@@ -49,9 +71,9 @@ public class Player {
 
     public void setBaseAttackroll() {
         if (charClass.equals("Wizard")) {
-            this.baseAttackroll = 2 * getLevel();
+            this.baseAttackroll = 2 * getLevel() + getWeapon().getDamageModifier();
         } else if (charClass.equals("Fighter")) {
-            this.baseAttackroll = 5 * getLevel();
+            this.baseAttackroll = 5 * getLevel() + getWeapon().getDamageModifier();
         } else {
             System.out.println("Could not recognize valid Characterclass, please check the params on " + Player.this);
         }
@@ -69,6 +91,11 @@ public class Player {
         } else {
             System.out.println("Could not recognize valid Characterclass, please check the params on " + Player.this);
         }
+    }
+
+    public void setBaseHP(Enemy enemy) {
+        this.baseHP = this.baseHP - enemy.getAttackroll();
+
     }
 
     public int getLevel() {
@@ -96,6 +123,8 @@ public class Player {
         this.level = experience / 1000;
 
     }
+
+
 
 
 

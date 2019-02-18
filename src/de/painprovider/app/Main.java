@@ -14,9 +14,11 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Player bamboozled = new Player(5, "Fighter");
+        Player bamboozled = new Player(
+                1, "Fighter", "Bamboozled");
+        Enemy ork = new Enemy(5, "Fighter", 15000);
 
-
+        Battlefield hell = new Battlefield();
 
         List<Enemy> enemies = new ArrayList<>(Arrays.asList(
                new Enemy(5, "Fighter", (int)(Math.random() * 500 + 100)),
@@ -24,9 +26,14 @@ public class Main {
                new Enemy(5, "Fighter", (int)(Math.random() * 500 + 100))
         ));
 
-        Enemy ork = new Enemy(5, "Fighter", 15000);
+       hell.fightingRound(bamboozled, ork);
 
-        System.out.println(bamboozled.getWeapon().getDamageModifier());
+
+
+
+
+
+
 
 
 

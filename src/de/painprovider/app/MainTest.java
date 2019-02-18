@@ -29,4 +29,16 @@ public class MainTest {
         System.out.println(bamboozled.getExperience());
 
 */
+
+    /*
+    ork.setIsDead();
+    System.out.println(ork.getIsDead());
+
+    ork.setBaseHP(0);
+    ork.setIsDead();
+
+    System.out.println(ork.getIsDead());
+    */
+
+
 }
