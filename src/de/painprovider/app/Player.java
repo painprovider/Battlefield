@@ -15,6 +15,7 @@ public class Player {
     public Player(int level, String charClass){
         this.level = level;
         this.charClass = charClass;
+        this.experience = level * 1000;
         setBaseAttackroll();
         setBaseHP();
     }
@@ -64,9 +65,16 @@ public class Player {
     }
 
     public void setExperience(int tempExp) {
-
         this.experience = this.experience + tempExp;
+        LevelUp();
     }
+
+    public void LevelUp() {
+        this.level = experience / 1000;
+
+    }
+
+
 
 
 }
