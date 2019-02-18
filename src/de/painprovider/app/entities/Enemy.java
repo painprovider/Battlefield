@@ -1,4 +1,4 @@
-package de.painprovider.app;
+package de.painprovider.app.entities;
 
 public class Enemy {
 

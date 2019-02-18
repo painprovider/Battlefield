@@ -1,8 +1,16 @@
-package de.painprovider.app;
-
-import de.painprovider.app.Enemy;
+package de.painprovider.app.entities;
 
 // int random = (int)(Math.random() * 50 + 1);
+
+import de.painprovider.app.Armor.Armor;
+import de.painprovider.app.Armor.Robes;
+import de.painprovider.app.items.Item;
+import de.painprovider.app.material.Material;
+import de.painprovider.app.weapon.Sword;
+import de.painprovider.app.weapon.Weapon;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
     private int baseAttackroll;
@@ -11,13 +19,28 @@ public class Player {
     private int attackroll;
     private String charClass;
     private int experience;
+    public Weapon weapon;
+    public Armor armor;
+    private List<Item> inventory = new ArrayList<>();
 
     public Player(int level, String charClass){
         this.level = level;
         this.charClass = charClass;
         this.experience = level * 1000;
+        this.weapon = new Sword(new Material("Crapium", 1, 1));
+        this.armor = new Robes(new Material("Crapium", 1, 1));
         setBaseAttackroll();
         setBaseHP();
+    }
+
+
+
+    public void setWeapon(Weapon w) {
+        this.weapon = w;
+    }
+
+    public Weapon getWeapon() {
+        return this.weapon;
     }
 
     public int getBaseAttackroll() {
@@ -69,7 +92,7 @@ public class Player {
         LevelUp();
     }
 
-    public void LevelUp() {
+    private void LevelUp() {
         this.level = experience / 1000;
 
     }
