@@ -33,7 +33,7 @@ public class Main {
        hell.fightingRound(bamboozled, ork);
 
         Barbarian barb = new Barbarian(11,11,11,11,11,11);
-        Sorcerer sorc = new Sorcerer(11,11,11,11,11,11);
+        Sorcerer sorc = new Sorcerer(11,11,111111,11,11,11);
 
 
 
