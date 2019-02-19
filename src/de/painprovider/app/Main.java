@@ -1,5 +1,9 @@
 package de.painprovider.app;
 
+import de.painprovider.app.Dice.W20;
+import de.painprovider.app.classes.Barbarian;
+import de.painprovider.app.classes.Bard;
+import de.painprovider.app.classes.Sorcerer;
 import de.painprovider.app.entities.Enemy;
 import de.painprovider.app.entities.Player;
 
@@ -27,6 +31,34 @@ public class Main {
         ));
 
        hell.fightingRound(bamboozled, ork);
+
+        Barbarian barb = new Barbarian(11,11,11,11,11,11);
+        Sorcerer sorc = new Sorcerer(11,11,11,11,11,11);
+
+
+
+        for (int i = 1; i < 30; i++) {
+
+            sorc.setLevel(i);
+            System.out.println("   level " + i + " :" + sorc.getBaseAttackBonus() );
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

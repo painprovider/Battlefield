@@ -40,5 +40,4 @@ public class MainTest {
     System.out.println(ork.getIsDead());
     */
 
-
 }
